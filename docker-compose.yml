@@ -1,0 +1,88 @@
+version: "3.9"
+
+# RecoverAI — local development stack.
+# Hackathon-scoped: Postgres + Redis + backend + frontend only.
+# See docs/architecture/system-architecture.md for why nothing heavier is used.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: recoverai-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-recoverai}
+      POSTGRES_USER: ${POSTGRES_USER:-recoverai}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change-me}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - recoverai_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-recoverai}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: recoverai-redis
+    restart: unless-stopped
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/backend.Dockerfile
+    container_name: recoverai-backend
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      # Inside the compose network the DB host is the `postgres` service,
+      # not `localhost` (which .env uses for host-side tooling).
+      DATABASE_URL: postgresql://${POSTGRES_USER:-recoverai}:${POSTGRES_PASSWORD:-change-me}@postgres:5432/${POSTGRES_DB:-recoverai}
+      REDIS_URL: redis://redis:6379/0
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    volumes:
+      - ./backend:/app/backend
+      - ./ml:/app/ml
+      - ./simulation:/app/simulation
+      - ./tests:/app/tests
+      - ./scripts:/app/scripts
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../infrastructure/docker/frontend.Dockerfile
+    container_name: recoverai-frontend
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      # Server-side fetches (Next.js server components) reach the backend
+      # over the compose network — NOT via localhost, which inside this
+      # container refers to the frontend container itself.
+      BACKEND_API_URL: http://backend:8000
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+
+volumes:
+  recoverai_postgres_data:

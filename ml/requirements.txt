@@ -1,0 +1,11 @@
+# RecoverAI ML dependencies.
+# Phase 3: numpy + scikit-learn + joblib (logistic-regression S-learner,
+#   artifact persistence).
+# Phase 4: + lightgbm (deterministic action-conditioned S-learner candidate
+#   in the model bake-off). pandas is reserved for later reporting work.
+
+numpy==2.1.1
+pandas==2.2.2
+scikit-learn==1.5.1
+joblib==1.6.0
+lightgbm==4.5.0

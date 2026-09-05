@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tasteful, restrained motion. Elements land in their final, correct
+   state via inline styles regardless of animation support — the
+   animation is a progressive enhancement, never load-bearing for data
+   correctness. Fully disabled under prefers-reduced-motion. */
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes growBar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--target, 100%);
+  }
+}
+
+@keyframes drawIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-fade-up {
+    animation: fadeSlideUp 480ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--delay, 0ms);
+  }
+  .animate-grow-bar {
+    animation: growBar 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--delay, 0ms);
+  }
+  .animate-node-in {
+    animation: drawIn 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--delay, 0ms);
+  }
+}

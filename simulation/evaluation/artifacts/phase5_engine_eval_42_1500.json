@@ -1,0 +1,71 @@
+{
+  "seed": 42,
+  "n_cases": 1500,
+  "customers_per_merchant": 250,
+  "dataset_config": {
+    "seed": 42,
+    "n_cases": 1500,
+    "customers_per_merchant": 250,
+    "n_merchants": 3,
+    "max_cycles": 3,
+    "costs": {
+      "RETRY": 2.0,
+      "MESSAGE": 3.0,
+      "NO_ACTION": 0.0
+    },
+    "note": "SYNTHETIC \u2014 simulator parameters, not Razorpay data",
+    "cases_scored": 217
+  },
+  "model_version": {
+    "model_name": "recovery-t-learner-logreg",
+    "version": "engine-eval-42",
+    "algorithm": "logistic_regression_per_action",
+    "kind": "t_learner",
+    "training_dataset_snapshot_id": "tds-2196-80ca1a55b83c0f6e",
+    "feature_schema_id": "sim-feature-schema-v1",
+    "status": "DRAFT"
+  },
+  "oracle_action_mix": {
+    "RETRY": 0.3502,
+    "MESSAGE": 0.5576,
+    "NO_ACTION": 0.0922
+  },
+  "oracle_total_eirv": 135968.93,
+  "scores": {
+    "naive_retry_once": {
+      "name": "naive_retry_once",
+      "n_cases": 217,
+      "recovery_rate": 0.3762,
+      "total_realised_eirv": 52802.84,
+      "mean_realised_eirv": 243.3311,
+      "action_mix": {
+        "RETRY": 1.0,
+        "MESSAGE": 0.0,
+        "NO_ACTION": 0.0
+      },
+      "no_action_frequency": 0.0,
+      "policy_blocks": 0,
+      "action_agreement_with_oracle": 0.3502,
+      "mean_eirv_regret": 383.2539,
+      "total_eirv_regret": 83166.09
+    },
+    "recoverai": {
+      "name": "recoverai",
+      "n_cases": 217,
+      "recovery_rate": 0.5535,
+      "total_realised_eirv": 112217.23,
+      "mean_realised_eirv": 517.1301,
+      "action_mix": {
+        "RETRY": 0.3502,
+        "MESSAGE": 0.4424,
+        "NO_ACTION": 0.2074
+      },
+      "no_action_frequency": 0.2074,
+      "policy_blocks": 0,
+      "action_agreement_with_oracle": 0.7281,
+      "mean_eirv_regret": 109.4549,
+      "total_eirv_regret": 23751.7
+    }
+  },
+  "generated_at": "2026-09-02T18:56:01+00:00"
+}

@@ -1,0 +1,785 @@
+{
+  "seeds": [
+    42,
+    7,
+    123
+  ],
+  "n_cases": 1500,
+  "customers_per_merchant": 250,
+  "per_seed": [
+    {
+      "seed": 42,
+      "n_cases": 1500,
+      "dataset": {
+        "sim_run_id": "sim-42-1500-e110df6b",
+        "cases_created": 1500,
+        "training_examples": 7113,
+        "n_train": 1535,
+        "n_val": 337,
+        "n_test": 324,
+        "n_test_cases": 217,
+        "snapshot_id": "tds-2196-80ca1a55b83c0f6e",
+        "split_ratios": [
+          0.7,
+          0.15,
+          0.15
+        ],
+        "customers_per_merchant": 250
+      },
+      "models": {
+        "s_learner": {
+          "observational": {
+            "model": "s_learner",
+            "n": 324,
+            "positive_rate": 0.4167,
+            "brier": 0.1899,
+            "log_loss": 0.5596,
+            "roc_auc": 0.7793,
+            "ece": 0.0579,
+            "mean_proba_by_action": {
+              "RETRY": 0.3423,
+              "MESSAGE": 0.5009,
+              "NO_ACTION": 0.3596
+            },
+            "n_rows_by_action": {
+              "RETRY": 157,
+              "MESSAGE": 111,
+              "NO_ACTION": 56
+            },
+            "notes": []
+          },
+          "decision_quality": {
+            "model": "s_learner",
+            "n_cases": 217,
+            "incremental_mae": 0.2134,
+            "incremental_rmse": 0.2832,
+            "incremental_mae_by_action": {
+              "RETRY": 0.2086,
+              "MESSAGE": 0.2181
+            },
+            "action_agreement": 0.5576,
+            "mean_eirv_regret": 145.28,
+            "total_eirv_regret": 31524.99,
+            "model_action_mix": {
+              "RETRY": 0.0,
+              "MESSAGE": 1.0,
+              "NO_ACTION": 0.0
+            },
+            "oracle_action_mix": {
+              "RETRY": 0.3502,
+              "MESSAGE": 0.5576,
+              "NO_ACTION": 0.0922
+            },
+            "model_realised_eirv": 104443.94,
+            "oracle_realised_eirv": 135968.93,
+            "notes": []
+          }
+        },
+        "t_learner": {
+          "observational": {
+            "model": "t_learner",
+            "n": 324,
+            "positive_rate": 0.4167,
+            "brier": 0.1765,
+            "log_loss": 0.5322,
+            "roc_auc": 0.8081,
+            "ece": 0.0489,
+            "mean_proba_by_action": {
+              "RETRY": 0.3239,
+              "MESSAGE": 0.4823,
+              "NO_ACTION": 0.3318
+            },
+            "n_rows_by_action": {
+              "RETRY": 157,
+              "MESSAGE": 111,
+              "NO_ACTION": 56
+            },
+            "notes": []
+          },
+          "decision_quality": {
+            "model": "t_learner",
+            "n_cases": 217,
+            "incremental_mae": 0.2335,
+            "incremental_rmse": 0.2927,
+            "incremental_mae_by_action": {
+              "RETRY": 0.2355,
+              "MESSAGE": 0.2316
+            },
+            "action_agreement": 0.7281,
+            "mean_eirv_regret": 109.45,
+            "total_eirv_regret": 23751.7,
+            "model_action_mix": {
+              "RETRY": 0.3502,
+              "MESSAGE": 0.4424,
+              "NO_ACTION": 0.2074
+            },
+            "oracle_action_mix": {
+              "RETRY": 0.3502,
+              "MESSAGE": 0.5576,
+              "NO_ACTION": 0.0922
+            },
+            "model_realised_eirv": 112217.23,
+            "oracle_realised_eirv": 135968.93,
+            "notes": []
+          }
+        },
+        "tree_s_learner": {
+          "observational": {
+            "model": "tree_s_learner",
+            "n": 324,
+            "positive_rate": 0.4167,
+            "brier": 0.1919,
+            "log_loss": 0.5747,
+            "roc_auc": 0.7693,
+            "ece": 0.055,
+            "mean_proba_by_action": {
+              "RETRY": 0.2849,
+              "MESSAGE": 0.4984,
+              "NO_ACTION": 0.4177
+            },
+            "n_rows_by_action": {
+              "RETRY": 157,
+              "MESSAGE": 111,
+              "NO_ACTION": 56
+            },
+            "notes": []
+          },
+          "decision_quality": {
+            "model": "tree_s_learner",
+            "n_cases": 217,
+            "incremental_mae": 0.3539,
+            "incremental_rmse": 0.4099,
+            "incremental_mae_by_action": {
+              "RETRY": 0.3842,
+              "MESSAGE": 0.3236
+            },
+            "action_agreement": 0.0968,
+            "mean_eirv_regret": 621.01,
+            "total_eirv_regret": 134759.85,
+            "model_action_mix": {
+              "RETRY": 0.0691,
+              "MESSAGE": 0.0,
+              "NO_ACTION": 0.9309
+            },
+            "oracle_action_mix": {
+              "RETRY": 0.3502,
+              "MESSAGE": 0.5576,
+              "NO_ACTION": 0.0922
+            },
+            "model_realised_eirv": 1209.08,
+            "oracle_realised_eirv": 135968.93,
+            "notes": []
+          }
+        },
+        "lgbm_s_learner": {
+          "observational": {
+            "model": "lgbm_s_learner",
+            "n": 324,
+            "positive_rate": 0.4167,
+            "brier": 0.189,
+            "log_loss": 0.557,
+            "roc_auc": 0.7738,
+            "ece": 0.0862,
+            "mean_proba_by_action": {
+              "RETRY": 0.3101,
+              "MESSAGE": 0.4883,
+              "NO_ACTION": 0.4363
+            },
+            "n_rows_by_action": {
+              "RETRY": 157,
+              "MESSAGE": 111,
+              "NO_ACTION": 56
+            },
+            "notes": []
+          },
+          "decision_quality": {
+            "model": "lgbm_s_learner",
+            "n_cases": 217,
+            "incremental_mae": 0.3175,
+            "incremental_rmse": 0.3675,
+            "incremental_mae_by_action": {
+              "RETRY": 0.3368,
+              "MESSAGE": 0.2983
+            },
+            "action_agreement": 0.5991,
+            "mean_eirv_regret": 211.6,
+            "total_eirv_regret": 45916.46,
+            "model_action_mix": {
+              "RETRY": 0.0092,
+              "MESSAGE": 0.6221,
+              "NO_ACTION": 0.3687
+            },
+            "oracle_action_mix": {
+              "RETRY": 0.3502,
+              "MESSAGE": 0.5576,
+              "NO_ACTION": 0.0922
+            },
+            "model_realised_eirv": 90052.47,
+            "oracle_realised_eirv": 135968.93,
+            "notes": []
+          }
+        }
+      },
+      "table_markdown": "| Model | Brier | ROC-AUC | ECE | Incremental MAE | Action Agreement | Mean EIRV Regret |\n|---|---:|---:|---:|---:|---:|---:|\n| s_learner | 0.1899 | 0.7793 | 0.0579 | 0.2134 | 0.5576 | 145.28 |\n| t_learner | 0.1765 | 0.8081 | 0.0489 | 0.2335 | 0.7281 | 109.45 |\n| tree_s_learner | 0.1919 | 0.7693 | 0.0550 | 0.3539 | 0.0968 | 621.01 |\n| lgbm_s_learner | 0.1890 | 0.7738 | 0.0862 | 0.3175 | 0.5991 | 211.60 |",
+      "selected_model": "t_learner",
+      "selection_rationale": "lowest mean EIRV regret (109.45) among non-degenerate candidates, with action agreement 0.728 and incremental MAE 0.2335; decision quality is the primary Phase 4 criterion (not ROC-AUC alone). Excluded as degenerate (>90% of cases to one action): s_learner, tree_s_learner.",
+      "generated_at": "2026-09-02T18:03:47.180256+00:00",
+      "seconds": 22.47,
+      "notes": []
+    },
+    {
+      "seed": 7,
+      "n_cases": 1500,
+      "dataset": {
+        "sim_run_id": "sim-7-1500-baa2fa6b",
+        "cases_created": 1500,
+        "training_examples": 7119,
+        "n_train": 1525,
+        "n_val": 321,
+        "n_test": 347,
+        "n_test_cases": 219,
+        "snapshot_id": "tds-2193-c27da93f34a4da50",
+        "split_ratios": [
+          0.7,
+          0.15,
+          0.15
+        ],
+        "customers_per_merchant": 250
+      },
+      "models": {
+        "s_learner": {
+          "observational": {
+            "model": "s_learner",
+            "n": 347,
+            "positive_rate": 0.3602,
+            "brier": 0.1763,
+            "log_loss": 0.5257,
+            "roc_auc": 0.7886,
+            "ece": 0.0778,
+            "mean_proba_by_action": {
+              "RETRY": 0.2654,
+              "MESSAGE": 0.4518,
+              "NO_ACTION": 0.402
+            },
+            "n_rows_by_action": {
+              "RETRY": 136,
+              "MESSAGE": 118,
+              "NO_ACTION": 93
+            },
+            "notes": []
+          },
+          "decision_quality": {
+            "model": "s_learner",
+            "n_cases": 219,
+            "incremental_mae": 0.289,
+            "incremental_rmse": 0.3517,
+            "incremental_mae_by_action": {
+              "RETRY": 0.3087,
+              "MESSAGE": 0.2692
+            },
+            "action_agreement": 0.6073,
+            "mean_eirv_regret": 52.42,
+            "total_eirv_regret": 11479.01,
+            "model_action_mix": {
+              "RETRY": 0.0,
+              "MESSAGE": 0.9954,
+              "NO_ACTION": 0.0046
+            },
+            "oracle_action_mix": {
+              "RETRY": 0.3151,
+              "MESSAGE": 0.6027,
+              "NO_ACTION": 0.0822
+            },
+            "model_realised_eirv": 47444.22,
+            "oracle_realised_eirv": 58923.23,
+            "notes": []
+          }
+        },
+        "t_learner": {
+          "observational": {
+            "model": "t_learner",
+            "n": 347,
+            "positive_rate": 0.3602,
+            "brier": 0.1731,
+            "log_loss": 0.5145,
+            "roc_auc": 0.7961,
+            "ece": 0.0497,
+            "mean_proba_by_action": {
+              "RETRY": 0.269,
+              "MESSAGE": 0.4667,
+              "NO_ACTION": 0.2254
+            },
+            "n_rows_by_action": {
+              "RETRY": 136,
+              "MESSAGE": 118,
+              "NO_ACTION": 93
+            },
+            "notes": []
+          },
+          "decision_quality": {
+            "model": "t_learner",
+            "n_cases": 219,
+            "incremental_mae": 0.1528,
+            "incremental_rmse": 0.1987,
+            "incremental_mae_by_action": {
+              "RETRY": 0.1618,
+              "MESSAGE": 0.1437
+            },
+            "action_agreement": 0.7717,
+            "mean_eirv_regret": 16.41,
+            "total_eirv_regret": 3594.74,
+            "model_action_mix": {
+              "RETRY": 0.3333,
+              "MESSAGE": 0.5571,
+              "NO_ACTION": 0.1096
+            },
+            "oracle_action_mix": {
+              "RETRY": 0.3151,
+              "MESSAGE": 0.6027,
+              "NO_ACTION": 0.0822
+            },
+            "model_realised_eirv": 55328.49,
+            "oracle_realised_eirv": 58923.23,
+            "notes": []
+          }
+        },
+        "tree_s_learner": {
+          "observational": {
+            "model": "tree_s_learner",
+            "n": 347,
+            "positive_rate": 0.3602,
+            "brier": 0.1837,
+            "log_loss": 0.5504,
+            "roc_auc": 0.7734,
+            "ece": 0.047,
+            "mean_proba_by_action": {
+              "RETRY": 0.2556,
+              "MESSAGE": 0.4875,
+              "NO_ACTION": 0.3828
+            },
+            "n_rows_by_action": {
+              "RETRY": 136,
+              "MESSAGE": 118,
+              "NO_ACTION": 93
+            },
+            "notes": []
+          },
+          "decision_quality": {
+            "model": "tree_s_learner",
+            "n_cases": 219,
+            "incremental_mae": 0.3445,
+            "incremental_rmse": 0.3969,
+            "incremental_mae_by_action": {
+              "RETRY": 0.3737,
+              "MESSAGE": 0.3153
+            },
+            "action_agreement": 0.0685,
+            "mean_eirv_regret": 269.82,
+            "total_eirv_regret": 59090.44,
+            "model_action_mix": {
+              "RETRY": 0.032,
+              "MESSAGE": 0.0,
+              "NO_ACTION": 0.968
+            },
+            "oracle_action_mix": {
+              "RETRY": 0.3151,
+              "MESSAGE": 0.6027,
+              "NO_ACTION": 0.0822
+            },
+            "model_realised_eirv": -167.21,
+            "oracle_realised_eirv": 58923.23,
+            "notes": []
+          }
+        },
+        "lgbm_s_learner": {
+          "observational": {
+            "model": "lgbm_s_learner",
+            "n": 347,
+            "positive_rate": 0.3602,
+            "brier": 0.179,
+            "log_loss": 0.5396,
+            "roc_auc": 0.7844,
+            "ece": 0.0594,
+            "mean_proba_by_action": {
+              "RETRY": 0.2659,
+              "MESSAGE": 0.4509,
+              "NO_ACTION": 0.3164
+            },
+            "n_rows_by_action": {
+              "RETRY": 136,
+              "MESSAGE": 118,
+              "NO_ACTION": 93
+            },
+            "notes": []
+          },
+          "decision_quality": {
+            "model": "lgbm_s_learner",
+            "n_cases": 219,
+            "incremental_mae": 0.1963,
+            "incremental_rmse": 0.2468,
+            "incremental_mae_by_action": {
+              "RETRY": 0.2149,
+              "MESSAGE": 0.1777
+            },
+            "action_agreement": 0.621,
+            "mean_eirv_regret": 55.71,
+            "total_eirv_regret": 12200.28,
+            "model_action_mix": {
+              "RETRY": 0.0183,
+              "MESSAGE": 0.9087,
+              "NO_ACTION": 0.0731
+            },
+            "oracle_action_mix": {
+              "RETRY": 0.3151,
+              "MESSAGE": 0.6027,
+              "NO_ACTION": 0.0822
+            },
+            "model_realised_eirv": 46722.96,
+            "oracle_realised_eirv": 58923.23,
+            "notes": []
+          }
+        }
+      },
+      "table_markdown": "| Model | Brier | ROC-AUC | ECE | Incremental MAE | Action Agreement | Mean EIRV Regret |\n|---|---:|---:|---:|---:|---:|---:|\n| s_learner | 0.1763 | 0.7886 | 0.0778 | 0.2890 | 0.6073 | 52.42 |\n| t_learner | 0.1731 | 0.7961 | 0.0497 | 0.1528 | 0.7717 | 16.41 |\n| tree_s_learner | 0.1837 | 0.7734 | 0.0470 | 0.3445 | 0.0685 | 269.82 |\n| lgbm_s_learner | 0.1790 | 0.7844 | 0.0594 | 0.1963 | 0.6210 | 55.71 |",
+      "selected_model": "t_learner",
+      "selection_rationale": "lowest mean EIRV regret (16.41) among non-degenerate candidates, with action agreement 0.772 and incremental MAE 0.1528; decision quality is the primary Phase 4 criterion (not ROC-AUC alone). Excluded as degenerate (>90% of cases to one action): lgbm_s_learner, s_learner, tree_s_learner.",
+      "generated_at": "2026-09-02T18:04:11.724874+00:00",
+      "seconds": 24.54,
+      "notes": []
+    },
+    {
+      "seed": 123,
+      "n_cases": 1500,
+      "dataset": {
+        "sim_run_id": "sim-123-1500-8f400211",
+        "cases_created": 1500,
+        "training_examples": 7149,
+        "n_train": 1522,
+        "n_val": 342,
+        "n_test": 334,
+        "n_test_cases": 218,
+        "snapshot_id": "tds-2198-bf8d7af450b9782e",
+        "split_ratios": [
+          0.7,
+          0.15,
+          0.15
+        ],
+        "customers_per_merchant": 250
+      },
+      "models": {
+        "s_learner": {
+          "observational": {
+            "model": "s_learner",
+            "n": 334,
+            "positive_rate": 0.4012,
+            "brier": 0.1867,
+            "log_loss": 0.5576,
+            "roc_auc": 0.7682,
+            "ece": 0.0403,
+            "mean_proba_by_action": {
+              "RETRY": 0.2954,
+              "MESSAGE": 0.5482,
+              "NO_ACTION": 0.3517
+            },
+            "n_rows_by_action": {
+              "RETRY": 156,
+              "MESSAGE": 111,
+              "NO_ACTION": 67
+            },
+            "notes": []
+          },
+          "decision_quality": {
+            "model": "s_learner",
+            "n_cases": 218,
+            "incremental_mae": 0.2149,
+            "incremental_rmse": 0.2874,
+            "incremental_mae_by_action": {
+              "RETRY": 0.2462,
+              "MESSAGE": 0.1837
+            },
+            "action_agreement": 0.5275,
+            "mean_eirv_regret": 86.29,
+            "total_eirv_regret": 18811.78,
+            "model_action_mix": {
+              "RETRY": 0.0,
+              "MESSAGE": 1.0,
+              "NO_ACTION": 0.0
+            },
+            "oracle_action_mix": {
+              "RETRY": 0.3486,
+              "MESSAGE": 0.5275,
+              "NO_ACTION": 0.1239
+            },
+            "model_realised_eirv": 51388.49,
+            "oracle_realised_eirv": 70200.26,
+            "notes": []
+          }
+        },
+        "t_learner": {
+          "observational": {
+            "model": "t_learner",
+            "n": 334,
+            "positive_rate": 0.4012,
+            "brier": 0.1721,
+            "log_loss": 0.5272,
+            "roc_auc": 0.8081,
+            "ece": 0.0468,
+            "mean_proba_by_action": {
+              "RETRY": 0.288,
+              "MESSAGE": 0.5467,
+              "NO_ACTION": 0.1378
+            },
+            "n_rows_by_action": {
+              "RETRY": 156,
+              "MESSAGE": 111,
+              "NO_ACTION": 67
+            },
+            "notes": []
+          },
+          "decision_quality": {
+            "model": "t_learner",
+            "n_cases": 218,
+            "incremental_mae": 0.1916,
+            "incremental_rmse": 0.2608,
+            "incremental_mae_by_action": {
+              "RETRY": 0.1587,
+              "MESSAGE": 0.2245
+            },
+            "action_agreement": 0.7018,
+            "mean_eirv_regret": 37.32,
+            "total_eirv_regret": 8135.68,
+            "model_action_mix": {
+              "RETRY": 0.3211,
+              "MESSAGE": 0.6697,
+              "NO_ACTION": 0.0092
+            },
+            "oracle_action_mix": {
+              "RETRY": 0.3486,
+              "MESSAGE": 0.5275,
+              "NO_ACTION": 0.1239
+            },
+            "model_realised_eirv": 62064.58,
+            "oracle_realised_eirv": 70200.26,
+            "notes": []
+          }
+        },
+        "tree_s_learner": {
+          "observational": {
+            "model": "tree_s_learner",
+            "n": 334,
+            "positive_rate": 0.4012,
+            "brier": 0.1908,
+            "log_loss": 0.6793,
+            "roc_auc": 0.766,
+            "ece": 0.0861,
+            "mean_proba_by_action": {
+              "RETRY": 0.2833,
+              "MESSAGE": 0.5554,
+              "NO_ACTION": 0.4205
+            },
+            "n_rows_by_action": {
+              "RETRY": 156,
+              "MESSAGE": 111,
+              "NO_ACTION": 67
+            },
+            "notes": []
+          },
+          "decision_quality": {
+            "model": "tree_s_learner",
+            "n_cases": 218,
+            "incremental_mae": 0.3581,
+            "incremental_rmse": 0.4165,
+            "incremental_mae_by_action": {
+              "RETRY": 0.4078,
+              "MESSAGE": 0.3084
+            },
+            "action_agreement": 0.1239,
+            "mean_eirv_regret": 322.02,
+            "total_eirv_regret": 70200.26,
+            "model_action_mix": {
+              "RETRY": 0.0,
+              "MESSAGE": 0.0,
+              "NO_ACTION": 1.0
+            },
+            "oracle_action_mix": {
+              "RETRY": 0.3486,
+              "MESSAGE": 0.5275,
+              "NO_ACTION": 0.1239
+            },
+            "model_realised_eirv": 0.0,
+            "oracle_realised_eirv": 70200.26,
+            "notes": []
+          }
+        },
+        "lgbm_s_learner": {
+          "observational": {
+            "model": "lgbm_s_learner",
+            "n": 334,
+            "positive_rate": 0.4012,
+            "brier": 0.1807,
+            "log_loss": 0.5363,
+            "roc_auc": 0.7881,
+            "ece": 0.0587,
+            "mean_proba_by_action": {
+              "RETRY": 0.2851,
+              "MESSAGE": 0.578,
+              "NO_ACTION": 0.3525
+            },
+            "n_rows_by_action": {
+              "RETRY": 156,
+              "MESSAGE": 111,
+              "NO_ACTION": 67
+            },
+            "notes": []
+          },
+          "decision_quality": {
+            "model": "lgbm_s_learner",
+            "n_cases": 218,
+            "incremental_mae": 0.2064,
+            "incremental_rmse": 0.2643,
+            "incremental_mae_by_action": {
+              "RETRY": 0.26,
+              "MESSAGE": 0.1527
+            },
+            "action_agreement": 0.5734,
+            "mean_eirv_regret": 71.61,
+            "total_eirv_regret": 15610.87,
+            "model_action_mix": {
+              "RETRY": 0.0321,
+              "MESSAGE": 0.9358,
+              "NO_ACTION": 0.0321
+            },
+            "oracle_action_mix": {
+              "RETRY": 0.3486,
+              "MESSAGE": 0.5275,
+              "NO_ACTION": 0.1239
+            },
+            "model_realised_eirv": 54589.4,
+            "oracle_realised_eirv": 70200.26,
+            "notes": []
+          }
+        }
+      },
+      "table_markdown": "| Model | Brier | ROC-AUC | ECE | Incremental MAE | Action Agreement | Mean EIRV Regret |\n|---|---:|---:|---:|---:|---:|---:|\n| s_learner | 0.1867 | 0.7682 | 0.0403 | 0.2149 | 0.5275 | 86.29 |\n| t_learner | 0.1721 | 0.8081 | 0.0468 | 0.1916 | 0.7018 | 37.32 |\n| tree_s_learner | 0.1908 | 0.7660 | 0.0861 | 0.3581 | 0.1239 | 322.02 |\n| lgbm_s_learner | 0.1807 | 0.7881 | 0.0587 | 0.2064 | 0.5734 | 71.61 |",
+      "selected_model": "t_learner",
+      "selection_rationale": "lowest mean EIRV regret (37.32) among non-degenerate candidates, with action agreement 0.702 and incremental MAE 0.1916; decision quality is the primary Phase 4 criterion (not ROC-AUC alone). Excluded as degenerate (>90% of cases to one action): lgbm_s_learner, s_learner, tree_s_learner.",
+      "generated_at": "2026-09-02T18:04:37.616977+00:00",
+      "seconds": 25.89,
+      "notes": []
+    }
+  ],
+  "aggregate": {
+    "s_learner": {
+      "brier": {
+        "mean": 0.1843,
+        "stdev": 0.0058
+      },
+      "roc_auc": {
+        "mean": 0.7787,
+        "stdev": 0.0083
+      },
+      "ece": {
+        "mean": 0.0587,
+        "stdev": 0.0153
+      },
+      "incremental_mae": {
+        "mean": 0.2391,
+        "stdev": 0.0353
+      },
+      "action_agreement": {
+        "mean": 0.5641,
+        "stdev": 0.0329
+      },
+      "mean_eirv_regret": {
+        "mean": 94.6633,
+        "stdev": 38.3695
+      }
+    },
+    "t_learner": {
+      "brier": {
+        "mean": 0.1739,
+        "stdev": 0.0019
+      },
+      "roc_auc": {
+        "mean": 0.8041,
+        "stdev": 0.0057
+      },
+      "ece": {
+        "mean": 0.0485,
+        "stdev": 0.0012
+      },
+      "incremental_mae": {
+        "mean": 0.1926,
+        "stdev": 0.033
+      },
+      "action_agreement": {
+        "mean": 0.7339,
+        "stdev": 0.0288
+      },
+      "mean_eirv_regret": {
+        "mean": 54.3933,
+        "stdev": 39.8559
+      }
+    },
+    "tree_s_learner": {
+      "brier": {
+        "mean": 0.1888,
+        "stdev": 0.0036
+      },
+      "roc_auc": {
+        "mean": 0.7696,
+        "stdev": 0.003
+      },
+      "ece": {
+        "mean": 0.0627,
+        "stdev": 0.0169
+      },
+      "incremental_mae": {
+        "mean": 0.3522,
+        "stdev": 0.0057
+      },
+      "action_agreement": {
+        "mean": 0.0964,
+        "stdev": 0.0226
+      },
+      "mean_eirv_regret": {
+        "mean": 404.2833,
+        "stdev": 154.7235
+      }
+    },
+    "lgbm_s_learner": {
+      "brier": {
+        "mean": 0.1829,
+        "stdev": 0.0044
+      },
+      "roc_auc": {
+        "mean": 0.7821,
+        "stdev": 0.0061
+      },
+      "ece": {
+        "mean": 0.0681,
+        "stdev": 0.0128
+      },
+      "incremental_mae": {
+        "mean": 0.2401,
+        "stdev": 0.0549
+      },
+      "action_agreement": {
+        "mean": 0.5978,
+        "stdev": 0.0195
+      },
+      "mean_eirv_regret": {
+        "mean": 112.9733,
+        "stdev": 70.041
+      }
+    }
+  },
+  "table_markdown": "| Model | Brier | ROC-AUC | ECE | Incremental MAE | Action Agreement | Mean EIRV Regret |\n|---|---:|---:|---:|---:|---:|---:|\n| s_learner | 0.1843+/-0.0058 | 0.7787+/-0.0083 | 0.0587+/-0.0153 | 0.2391+/-0.0353 | 0.5641+/-0.0329 | 94.66+/-38.37 |\n| t_learner | 0.1739+/-0.0019 | 0.8041+/-0.0057 | 0.0485+/-0.0012 | 0.1926+/-0.0330 | 0.7339+/-0.0288 | 54.39+/-39.86 |\n| tree_s_learner | 0.1888+/-0.0036 | 0.7696+/-0.0030 | 0.0627+/-0.0169 | 0.3522+/-0.0057 | 0.0964+/-0.0226 | 404.28+/-154.72 |\n| lgbm_s_learner | 0.1829+/-0.0044 | 0.7821+/-0.0061 | 0.0681+/-0.0128 | 0.2401+/-0.0549 | 0.5978+/-0.0195 | 112.97+/-70.04 |",
+  "selected_model": "t_learner",
+  "excluded_as_degenerate": [
+    "lgbm_s_learner",
+    "s_learner",
+    "tree_s_learner"
+  ],
+  "generated_at": "2026-09-02T18:04:37.633698+00:00"
+}

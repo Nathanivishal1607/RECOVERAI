@@ -1,0 +1,70 @@
+# --- Python / Backend / ML ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.log
+
+# ML artifacts
+ml/models/artifacts/*
+!ml/models/artifacts/.gitkeep
+ml/experiments/runs/
+*.pkl
+*.joblib
+mlruns/
+
+# --- Node / Frontend ---
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.turbo/
+frontend/coverage/
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Env / secrets ---
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# --- Docker ---
+*.pid
+
+# --- OS / Editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- Data (never commit real or large synthetic dumps) ---
+simulation/generator/output/
+*.csv
+*.parquet
+!simulation/ground_truth/**/*.md
+
+# --- Simulator run artifacts (hidden ground truth + throwaway DBs) ---
+simulation/ground_truth/runs/*.json
+!simulation/ground_truth/runs/.gitkeep
+sim_*.db
+
+# --- Evaluation artifacts ---
+# Keep the canonical results committed (each reproducible via its own
+# `python -m simulation.evaluation.*` entry point); ignore ad-hoc runs
+# and the throwaway model artifacts an eval run trains.
+simulation/evaluation/artifacts/*
+!simulation/evaluation/artifacts/.gitkeep
+!simulation/evaluation/artifacts/phase4_comparison_multiseed_1500.json
+!simulation/evaluation/artifacts/phase5_engine_eval_42_1500.json
+
+# --- Database ---
+*.sqlite3
