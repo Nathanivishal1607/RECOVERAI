@@ -46,6 +46,38 @@ investigates, explains, and drafts customer messages. Every action that
 touches a payment goes through a deterministic policy engine first. See
 [`docs/architecture/decision-flow.md`](docs/architecture/decision-flow.md).
 
+## Architecture
+
+```mermaid
+flowchart TD
+    A["Failed Payment"] --> B["T-Learner<br/>Recovery Probability per Action"]
+    B --> C["Decision Engine<br/>EIRV"]
+    C --> D["Policy Engine<br/>Allow / Block"]
+    D --> E["Final Action<br/>RETRY / MESSAGE / NO_ACTION"]
+    E --> F["Execution"]
+    F --> G["Outcome"]
+    G --> H["Learning Loop<br/>Training Examples"]
+
+    G -.-> I["Completed Decision Context"]
+
+    subgraph EXP["Read-only explanation layer — NOT part of the decision"]
+        direction TB
+        I --> J["NVIDIA NIM / LLM"]
+        J --> K["Explanation Only"]
+    end
+```
+
+RecoverAI separates prediction from decision-making. The T-Learner predicts
+recovery probability for each candidate action. The Decision Engine uses
+those predictions and economic factors to calculate EIRV and select a
+recommendation. The Policy Engine then determines whether that
+recommendation is allowed, producing the `final_action` (which may differ
+from the recommendation). Execution and outcome are recorded separately,
+and outcomes can become training examples for the learning loop. **NVIDIA
+NIM is a read-only explanation layer and does not participate in the
+financial decision** — it never predicts recovery probability, calculates
+EIRV, selects the final action, or overrides policy.
+
 ## Repository layout
 
 ```
